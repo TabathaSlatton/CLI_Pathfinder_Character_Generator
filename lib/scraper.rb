@@ -3,8 +3,7 @@ require 'nokogiri'
 require 'open-uri'
 class Scraper
 
-    RACE_URL =
-    RACE_DETAILS_URL = "https://2e.aonprd.com/Ancestries.aspx"
+    RACE_URL = "https://2e.aonprd.com/Ancestries.aspx/"
     CHARACTER_CLASS_URL = 
     CHARACTER_CLASS_DETAILS_URL =
 
@@ -18,14 +17,22 @@ class Scraper
             if character_class.text != ""
                 race = character_class.text.strip
                 url = character_class['href']
-                Race.new(race, url)
+                Race.new(race, url) unless Race.all.any? {|obj| obj.name == race}
             end
         end
     end
 
-    def self.scrape_race_details(race_details_url = RACE_DETAILS_URL)
-        doc = Nokogiri::HTML(open(race_details_url))
-        doc.css("")
+    def self.scrape_race_details(race)
+        # binding.pry
+        doc = Nokogiri::HTML(open(RACE_URL+race.url))
+        binding.pry
+        race.physical_description = doc.css('h2.title')[2].next_sibling().text
+        race.alignment = doc.css('h2.title')[4].next_sibling().text
+        race_details = doc.css('h2.title')
+        race_details.each_with_index do |heading, i|
+            race.send(("#{heading.text.downcase.split(/\.|\s|"(s)"/).join("_")}="), heading[i].next_sibling().text)
+        end
+
     end
 
     def self.scrape_character_class(character_class_url = CHARACTER_CLASS_URL)
@@ -39,4 +46,3 @@ class Scraper
     end
 end
 
-Scraper.scrape_race

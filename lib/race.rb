@@ -1,5 +1,5 @@
 class Race
-    attr_accessor :name, :url
+    attr_accessor :name, :url, :physical_description, 
 
     @@all = []
     def initialize(name, url)
@@ -19,6 +19,10 @@ class Race
         @@all
     end
 
+    def details(scraped_details)
+
+    end
+
     def self.menu
         puts "Please select a number to get more information about the character race:"
         input = gets.chomp
@@ -27,7 +31,8 @@ class Race
             list_races
             menu
         else
-         puts "Race information here"
+          race = Race.all[input.to_i-1]
+          details(Scraper.scrape_race_details(race))
         end
         puts "Please choose from the following options:"
         puts "1. Assign race to your character sheet."
