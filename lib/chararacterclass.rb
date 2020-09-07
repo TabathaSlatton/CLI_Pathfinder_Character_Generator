@@ -1,0 +1,4 @@
+class CharacterClass
+
+    def 
+end

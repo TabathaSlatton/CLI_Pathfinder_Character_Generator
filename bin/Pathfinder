@@ -1,4 +1,9 @@
 #!/usr/bin/env ruby
 require_relative '../lib/CLI.rb'
+
+require 'nokogiri'
+require 'open-uri'
+require 'pry'
+
  
 CommandLineInterface.new.call
