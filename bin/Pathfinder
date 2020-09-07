@@ -1,3 +1,4 @@
 #!/usr/bin/env ruby
+require_relative '../lib/CLI.rb'
  
-puts "Hello World"
+CommandLineInterface.new.call
