@@ -1,4 +1,4 @@
 class CharacterClass
 
-    def 
+    
 end

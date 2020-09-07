@@ -1,5 +1,12 @@
 #!/usr/bin/env ruby
+
 require_relative '../lib/CLI.rb'
+require_relative '../lib/race.rb'
+require_relative '../lib/charactersheet.rb'
+require_relative '../lib/characterclass.rb'
+require_relative '../lib/scraper.rb'
+
+
 
 require 'nokogiri'
 require 'open-uri'

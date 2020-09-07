@@ -13,12 +13,11 @@ class Scraper
         # scraped_character_races = []
         char_classes = doc.css('div.main span')[3].css('h2 a')
         char_classes.each do |character_class|
-            binding.pry
+            # binding.pry
             # scraped_character_races << 
             if character_class.text != ""
                 race = character_class.text.strip
                 url = character_class['href']
-
                 Race.new(race, url)
             end
         end

@@ -5,6 +5,7 @@ class CommandLineInterface
         puts "Please select a character race to learn more about them:"
         Scraper.scrape_race
         Race.list_races
+        Race.menu
     end
 
 end
