@@ -25,12 +25,14 @@ class Scraper
     def self.scrape_race_details(race)
         # binding.pry
         doc = Nokogiri::HTML(open(RACE_URL+race.url))
-        binding.pry
+        # binding.pry
         race.physical_description = doc.css('h2.title')[2].next_sibling().text
         race.alignment = doc.css('h2.title')[4].next_sibling().text
         race_details = doc.css('h2.title')
-        race_details.each_with_index do |heading, i|
-            race.send(("#{heading.text.downcase.split(/\.|\s|"(s)"/).join("_")}="), heading[i].next_sibling().text)
+        race_details.each do |heading|
+            # binding.pry
+            race.send(("#{heading.text.downcase.split(/\.|\s|\(s\)|-/).join("_")}="), heading.next_sibling().text) 
+            puts "#{heading.text}: #{heading.next_sibling().text}." 
         end
 
     end

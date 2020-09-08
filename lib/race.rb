@@ -1,5 +1,5 @@
 class Race
-    attr_accessor :name, :url, :physical_description, 
+    attr_accessor :name, :url, :you_might, :others_probably, :physical_description, :society, :alignment, :alignment_and_religion, :adventurers, :names, :sample_names, :hit_points, :size, :speed, :ability_boosts, :ability_flaw, :languages, :low_light_vision, :darkvision, :clan_dagger, :keen_eyes, :land_on_your_feet, :draconic_exemplar, :plant_nourishment, :aquatic_adaptation, :claws, :blunt_snout, :sharp_beak
 
     @@all = []
     def initialize(name, url)
@@ -19,10 +19,6 @@ class Race
         @@all
     end
 
-    def details(scraped_details)
-
-    end
-
     def self.menu
         puts "Please select a number to get more information about the character race:"
         input = gets.chomp
@@ -32,7 +28,7 @@ class Race
             menu
         else
           race = Race.all[input.to_i-1]
-          details(Scraper.scrape_race_details(race))
+          Scraper.scrape_race_details(race)
         end
         puts "Please choose from the following options:"
         puts "1. Assign race to your character sheet."
