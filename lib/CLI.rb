@@ -22,9 +22,9 @@ class CommandLineInterface
     def main_menu
         puts "What would you like to do next?"
         puts "1. Learn more about potential character races."
-        puts "2. Learn more about potential character classes."
-        puts "3. View your character sheet."
-        puts "4. Exit the character creater."
+        puts "2. Learn more about potential character classes." 
+        puts "3. View your character sheet." if CharacterSheet.all[0].race && CharacterSheet.all[0].characterclass
+        puts "4. Exit the character creater." 
         input = gets.chomp 
         if input.to_i == 1
             puts "You chose: Learn more about potential character races."
@@ -36,7 +36,7 @@ class CommandLineInterface
             CharacterClass.list_classes
             CharacterClass.menu
             main_menu
-        elsif input.to_i == 3
+        elsif input.to_i == 3 && CharacterSheet.all[0].race && CharacterSheet.all[0].characterclass
             puts "You chose: View your character sheet."
             character = CharacterSheet.all[0]
             character.view

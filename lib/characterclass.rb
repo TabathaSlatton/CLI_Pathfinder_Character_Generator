@@ -43,7 +43,7 @@ class CharacterClass
         puts "  Skills: #{@traits["Skills"]}"
         puts "  Attacks: #{@traits["Attacks"]}"
         puts "  Defenses: #{@traits["Defenses"]}"
-        puts "  Initial Proficienies #{@traits["Initial Proficiencies"]}\n\n\n"
+        puts "  Initial Proficiencies #{@traits["Initial Proficiencies"]}\n\n\n"
     end
 
     def details
