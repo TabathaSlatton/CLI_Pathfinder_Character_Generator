@@ -38,6 +38,9 @@ class Race
         input = gets.chomp
         if input.to_i == 1
             puts "You chose to: Assign race to your character sheet."
+            character = CharacterSheet.all[0]
+            character.assign_race(Race.all[input.to_i-1])
+            puts "#{character.name}'s race is now: #{character.race_name}"
         elsif input.to_i == 2
             puts "You chose to: Learn information about another race."
             list_races

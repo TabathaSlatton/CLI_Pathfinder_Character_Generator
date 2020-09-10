@@ -31,8 +31,11 @@ class Scraper
         race_details = doc.css('h2.title')
         race_details.each do |heading|
             # binding.pry
-            race.send(("#{heading.text.downcase.split(/\.|\s|\(s\)|-/).join("_")}="), heading.next_sibling().text) 
-            puts "#{heading.text}: #{heading.next_sibling().text}." 
+            title = heading.text
+            body = heading.next_sibling().text
+
+            race.send(("#{title.downcase.split(/\.|\s|\(s\)|-/).join("_")}="), body)  unless title == "Names" || title == "Alignment and Religion"
+            puts "#{heading.text}: \n      #{body}.\n\n" unless title == "Names" || title == "Alignment and Religion"
         end
 
     end
