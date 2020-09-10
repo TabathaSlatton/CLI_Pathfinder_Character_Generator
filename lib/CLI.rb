@@ -34,10 +34,12 @@ class CommandLineInterface
             puts "You chose: Learn more about potential character races."
             Race.list_races
             Race.menu
+            main_menu
         elsif input.to_i == 2
             puts "You chose: Learn more about potential character classes."
             CharacterClass.list_classes
             CharacterClass.menu
+            main_menu
         elsif input.to_i == 3
             puts "You chose: Determine your ability scores."
         elsif input.to_i == 4
@@ -48,6 +50,9 @@ class CommandLineInterface
             puts "You chose: Final Details."
         elsif input.to_i == 7
             puts "You chose: View your character sheet."
+            character = CharacterSheet.all[0]
+            character.view
+            main_menu
         elsif input.to_i == 8
             puts "You chose: Exit the character creator."
             exit

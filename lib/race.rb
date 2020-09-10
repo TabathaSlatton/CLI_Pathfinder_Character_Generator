@@ -19,6 +19,10 @@ class Race
         @@all
     end
 
+    def details
+        Scraper.scrape_race_details(self)    
+    end
+
     def self.menu
         puts "Please select a number to get more information about the character race:"
         input = gets.chomp
