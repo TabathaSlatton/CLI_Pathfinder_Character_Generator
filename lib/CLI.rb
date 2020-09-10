@@ -27,6 +27,8 @@ class CommandLineInterface
         input = gets.chomp 
         if input.to_i == 1
             puts "You chose: Learn more about potential character races."
+            Race.list_races
+            Race.menu
         elsif input.to_i == 2
             puts "You chose: Learn more about potential character classes."
         elsif input.to_i == 3

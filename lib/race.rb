@@ -35,19 +35,19 @@ class Race
         puts "2. Learn information about another race."
         puts "3. Go back to main menu to choose another character creator option."
         puts "4. Exit the character creator."
-        input = gets.chomp
-        if input.to_i == 1
+        new_input = gets.chomp
+        if new_input.to_i == 1
             puts "You chose to: Assign race to your character sheet."
             character = CharacterSheet.all[0]
             character.assign_race(Race.all[input.to_i-1])
             puts "#{character.name}'s race is now: #{character.race_name}"
-        elsif input.to_i == 2
+        elsif new_input.to_i == 2
             puts "You chose to: Learn information about another race."
             list_races
             menu
-        elsif input.to_i == 3
+        elsif new_input.to_i == 3
             puts "You chose to: Go back to main menu to choose another character creator option."
-        elsif input.to_i == 4
+        elsif new_input.to_i == 4
             puts "You chose to: Exit the character creator."
             exit
         else 
