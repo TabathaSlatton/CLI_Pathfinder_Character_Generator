@@ -5,7 +5,6 @@ class Scraper
 
     RACE_URL = "https://2e.aonprd.com/Ancestries.aspx/"
     CHARACTER_CLASS_URL = 
-    CHARACTER_CLASS_DETAILS_URL =
 
     def self.scrape_race(race_url = RACE_URL)
         doc = Nokogiri::HTML(open(race_url))
@@ -35,7 +34,7 @@ class Scraper
             body = heading.next_sibling().text
 
             race.send(("#{title.downcase.split(/\.|\s|\(s\)|-/).join("_")}="), body)  unless title == "Names" || title == "Alignment and Religion"
-            puts "#{heading.text}: \n      #{body}.\n\n" unless title == "Names" || title == "Alignment and Religion"
+            puts "#{heading.text}: \n\t#{body}.\n\n" unless title == "Names" || title == "Alignment and Religion"
         end
 
     end

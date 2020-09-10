@@ -10,7 +10,7 @@ class Race
 
     def self.list_races
         self.all.each.with_index(1) do |race, i|
-            puts "#{i}. #{race.name} hello"
+            puts "#{i}. #{race.name}"
         end
         # binding.pry
     end
