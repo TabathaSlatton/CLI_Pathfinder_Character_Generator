@@ -59,6 +59,7 @@ class CharacterClass
             character = CharacterSheet.all[0]
             character.assign_class(CharacterClass.all[input.to_i-1])
             puts "#{character.name}'s class is now: #{character.class_name}"
+            CommandLineInterface.main_menu
         elsif new_input.to_i == 2
             puts "You chose to: Learn information about another class."
             list_classes
