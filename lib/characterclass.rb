@@ -37,6 +37,15 @@ class CharacterClass
         @traits
     end
 
+    def description
+        puts "  Perception: #{@traits["Perception"]}"
+        puts "  Saving Throws: #{@traits["Saving Throws"]}."
+        puts "  Skills: #{@traits["Skills"]}"
+        puts "  Attacks: #{@traits["Attacks"]}"
+        puts "  Defenses: #{@traits["Defenses"]}"
+        puts "  Initial Proficienies #{@traits["Initial Proficiencies"]}\n\n\n"
+    end
+
     def details
         Scraper.scrape_character_class_details(self)
     end

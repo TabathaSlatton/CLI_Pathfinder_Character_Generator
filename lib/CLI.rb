@@ -23,12 +23,8 @@ class CommandLineInterface
         puts "What would you like to do next?"
         puts "1. Learn more about potential character races."
         puts "2. Learn more about potential character classes."
-        puts "3. Determine your ability scores."
-        puts "4. Learn more about potential skills and feats."
-        puts "5. Buy equipment."
-        puts "6. Final Details."
-        puts "7. View your character sheet."
-        puts "8. Exit the character creater."
+        puts "3. View your character sheet."
+        puts "4. Exit the character creater."
         input = gets.chomp 
         if input.to_i == 1
             puts "You chose: Learn more about potential character races."
@@ -41,21 +37,13 @@ class CommandLineInterface
             CharacterClass.menu
             main_menu
         elsif input.to_i == 3
-            puts "You chose: Determine your ability scores."
-        elsif input.to_i == 4
-            puts "You chose: Learn more about potential skills and feats."
-        elsif input.to_i == 5
-            puts "You chose: Buy equipment."
-        elsif input.to_i == 6
-            puts "You chose: Final Details."
-        elsif input.to_i == 7
             puts "You chose: View your character sheet."
             character = CharacterSheet.all[0]
             character.view
             main_menu
-        elsif input.to_i == 8
+        elsif input.to_i == 4
             puts "You chose: Exit the character creator."
-            exit
+            exit        
         else
             puts "Whoops, I didn't catch that. Let's try again."
             main_menu
