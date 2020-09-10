@@ -1,5 +1,5 @@
 class CharacterSheet
-    attr_accessor :name, :race, :characterclass, :level
+    attr_accessor :name, :race, :characterclass, :level, :characterclass
 
     @@all = []
 
@@ -20,4 +20,13 @@ class CharacterSheet
     def race_name
         self.race.name
     end
+
+    def assign_class(characterclass)
+        @characterclass = characterclass
+    end
+
+    def class_name
+        self.characterclass.name
+    end
 end
+
