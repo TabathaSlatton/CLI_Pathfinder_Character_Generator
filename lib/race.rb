@@ -20,7 +20,16 @@ class Race
     end
 
     def details
-        Scraper.scrape_race_details(self)    
+        if self.physical_description
+            self.instance_variables.each do |var| 
+                # binding.pry
+                split_var = var.to_s.split("@").join
+                puts "#{split_var.capitalize}\n\n" 
+                puts "\t#{self.send("#{split_var}")}"
+            end
+        else
+            Scraper.scrape_race_details(self)
+        end 
     end
 
     def self.menu
@@ -32,7 +41,7 @@ class Race
             menu
         else
           race = Race.all[input.to_i-1]
-          Scraper.scrape_race_details(race)
+          race.details
         end
         puts "Please choose from the following options:"
         puts "1. Assign race to your character sheet."

@@ -20,6 +20,7 @@ class CommandLineInterface
     end
 
     def main_menu
+        # binding.pry
         puts "What would you like to do next?"
         puts "1. Learn more about potential character races."
         puts "2. Learn more about potential character classes." 
